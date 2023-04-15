@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/signup', to: 'users#new'
 
+  resources :users
+
   # Defines the root path route ("/")
   root "static_pages#home"
 end
