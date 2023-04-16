@@ -15,10 +15,17 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out_user
+    redirect_to root_url
   end
 
   private
   def log_in_user(user)
     session[:user_id] = user.id
+  end
+
+  def log_out_user
+    reset_session
+    @current_user = nil
   end
 end
