@@ -1,14 +1,14 @@
 
 <% provide(:title, "Home") %>
 <div class="px-4 py-5 my-5 text-center">
-  <h1 class="display-5 fw-bold">Sample App</h1>
+  <h1 class="display-5 fw-bold">PostIt App</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">
-      To see the Ruby on Rails home page
+      Post away your thoughts to infinity
     </p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <a class="btn btn-primary btn-lg" href="https://rubyonrails.org/">Click here</a>
-      <%= link_to "Sign up", signup_path  , class: "btn btn-outline-secondary btn-lg px-4"%>
+      <%= link_to "Sign up", signup_path  , class: "btn btn-primary btn-lg px-4"%>
+      <%= link_to "Login", login_path  , class: "btn btn-outline-secondary btn-lg px-4 ml-5"%>
     </div>
   </div>
 </div>
