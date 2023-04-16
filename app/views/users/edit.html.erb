@@ -1,0 +1,29 @@
+<% provide(:title, "Edit user") %>
+<h1 class="mt-5">Update your profile</h1>
+
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <%= form_with(model: @user, local: true) do |editForm| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= editForm.label :name, class: "form-label" %>
+      <%= editForm.text_field :name, class: 'form-control mb-3' %>
+
+      <%= editForm.label :email, class: "form-label" %>
+      <%= editForm.email_field :email, class: 'form-control mb-3' %>
+
+      <%= editForm.label :password, class: "form-label" %>
+      <%= editForm.password_field :password, class: 'form-control mb-3' %>
+
+      <%= editForm.label :password_confirmation, "Confirmation", class: "form-label" %>
+      <%= editForm.password_field :password_confirmation, class: 'form-control mb-3' %>
+
+      <%= editForm.submit "Save changes", class: "btn btn-primary btn-lg my-3" %>
+    <% end %>
+
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="https://gravatar.com/emails" target="_blank">change</a>
+    </div>
+  </div>
+</div>
