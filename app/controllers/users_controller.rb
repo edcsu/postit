@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in_user @user
       flash[:success] = "Welcome to the Postit App!"
       redirect_to @user
     else
@@ -21,5 +22,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
+    end
+
+    def log_in_user(user)
+      session[:user_id] = user.id
     end
 end
