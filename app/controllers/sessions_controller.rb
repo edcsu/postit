@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       reset_session
       log_in_user user
+      remember user
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -27,5 +28,12 @@ class SessionsController < ApplicationController
   def log_out_user
     reset_session
     @current_user = nil
+  end
+
+  # Remembers a user in a persistent session.
+  def remember(user)
+    user.remember
+    cookies.permanent.encrypted[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
   end
 end
